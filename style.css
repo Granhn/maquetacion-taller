@@ -78,6 +78,29 @@ p{
     line-height: 1.6;
 }
 /*********** Components ***********/
+/*********** HeroImage ***********/
+.hero-image{
+    background-image: var(--image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: var(--attachment);
+}
+.hero-image-opacity{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--opacity-color);
+}
+.hero-image-title{
+    color: var(--hero-text-color);
+    font-size: 7.5vw;
+
+}
+/*********** HeroImage ***********/
 /*********** Menu ***********/
 .menu{
     display: none;
@@ -120,9 +143,69 @@ p{
     color: var(--white-color);
     background-color: var(--first-color);
 }
+/*********** Menu ***********/
+/*********** Progress ***********/
+progress{
+    width: 100%;
+    height: 1rem;
+    background-color: var(--gray-color);
+}
+progress::-webkit-progress-bar{
+    background-color: var(--gray-color);
+}
+progress::-webkit-progress-value{
+    background-color: var(--gray-dark-color);
+}
+progress::-moz-progress-bar{
+    background-color: var(--gray-dark-color);
+}
+.progress{
+    margin: 1rem auto;
+}
+.progress > p{
+   margin: 0; 
+   display: flex;
+   justify-content: space-between;
+   font-size: 0.85rem;
+}
+
+/*********** Progress ***********/
+@media screen and (min-width:1024px){
+    .menu-btn{
+        display: none;
+    }
+    .menu{
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        flex-direction: row;
+        width: auto;
+    }
+    .menu a{
+        padding: 0 1rem;
+    }
+    .menu a:last-child{
+        padding-right:0 ;
+    }
+    .menu a:hover{
+        background-color: transparent;
+    }
+}
+/*********** Menu ***********/
 /*********** Utilities ***********/
 .box-shadow{
     box-shadow: .25rem .25rem 1rem rgba(0,0,0,0.25);
+}
+.btn{
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--first-color);
 }
 .container{
     margin-left: auto ;
