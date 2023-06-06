@@ -192,7 +192,32 @@ progress::-moz-progress-bar{
     }
 }
 /*********** Menu ***********/
+/*********** MODAL ***********/
+.modal  {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-alpha-color);
+}
+.modal-content{
+    position: relative;
+}
+.modal-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+/*********** MODAL ***********/
 /*********** Utilities ***********/
+.bg-gray-light{
+    background-color: var(--gray-light-color);
+}
 .box-shadow{
     box-shadow: .25rem .25rem 1rem rgba(0,0,0,0.25);
 }
@@ -212,11 +237,58 @@ progress::-moz-progress-bar{
     margin-right: auto ;
     max-width: var(--max-width);
 }
+
 .none{
     display: none;
+} 
+.section{
+    padding: 2rem 1rem;
+}
+.section-title{
+    border-top: thin solid var(--first-color);
+    border-bottom: thin solid var(--first-color);
+    width: 250px;
+    margin:  auto;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    color: var(--title-olor);
+}
+.service-card svg{
+    fill: var(--first-color);
+    margin-bottom: 2rem;
+}
+.service-card h3{
+    color: var(--title-olor);
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+@media screen and (min-width: 1024px){
+    .text-lg-left{
+        text-align: left;
+    }
+    .text-lg-center{
+        text-align: center;
+    }
+    .text-lg-right{
+        text-align: right;
+    }
+    .full-lg-screen{
+        width: 100%;
+        min-height: 100vh;
+    }
 }
 /*********** Site Styles *********/
-
+.about > article{
+    margin-bottom: 2rem;
+}
 .header{
     position: fixed;
     left: 0;
@@ -238,8 +310,64 @@ progress::-moz-progress-bar{
     font-size: 2rem;
     text-decoration: none;
 }
+.portfolio-card{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.portfolio-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.portfolio-card-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--first-alpha-color);
+    color: var(--white-color);
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+}
+.portfolio-card:hover .portfolio-card-info{
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.5s ease-in-out;
+}
+.portfolio-card-info >div{
+    padding: 1rem;
+    border: thin solid var(--white-color);
+    height: 100%;
+    width: 100%;
+}
+
+.service-card{
+    margin: 1rem auto;
+    padding: 1rem;
+    text-align: center;
+}
 
 @media screen and (min-width:768px){
+    .portfolio > .container{
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+    }
+    .portfolio > .container > .section-title{
+        grid-column: span  2;
+    }
+    .services > .container{
+        display: grid;
+        grid-template-columns: repeat(2,45% );
+        justify-content: space-between;
+        justify-content: center;
+    }
+    .services > .container .section-title{
+        grid-column: span 2;
+    }
 
 }
 
@@ -248,4 +376,27 @@ progress::-moz-progress-bar{
         position: sticky;
         top: 0;
     }
+    .about{
+        display: grid;
+        grid-template-columns: repeat(3,30%);
+        justify-content: space-around;
+        align-content: center;
+    }
+    .portfolio > .container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .portfolio > .container .section-title{
+        grid-column: span  3;
+    }
+    .services > .container{
+        display: grid;
+        grid-template-columns: repeat(3,30% );
+        justify-content: space-between;
+        justify-content: center;
+    }
+    .services > .container .section-title{
+        grid-column: span 3;
+    }
+
 }
