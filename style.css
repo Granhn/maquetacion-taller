@@ -204,6 +204,9 @@ progress::-moz-progress-bar{
     justify-content: center;
     align-items: center;
     background-color: var(--black-alpha-color);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 1s;
 }
 .modal-content{
     position: relative;
@@ -212,6 +215,15 @@ progress::-moz-progress-bar{
     position: absolute;
     top: 1rem;
     right: 1rem;
+}
+.modal-close svg{
+    width: 3rem;
+    height: 3rem;
+    fill: var(--first-color);
+}
+.modal[id |= "trabajo"]:target{
+    opacity: 1;
+    pointer-events: auto;
 }
 /*********** MODAL ***********/
 /*********** Utilities ***********/
@@ -333,6 +345,27 @@ progress::-moz-progress-bar{
     opacity: 0;
     pointer-events: none;
 }
+.portfolio-modal{
+    background-color: var(--white-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+.portfolio-modal h3{
+    border-bottom: medium solid var(--first-color);
+    padding: 0.5rem 0;
+    margin: 1rem auto;
+    color: var(--title-olor);
+}
+.portfolio-details{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: 2rem;
+}
+.portfolio-details > small{
+    color: var(--first-color);
+}
 .portfolio-card:hover .portfolio-card-info{
     opacity: 1;
     pointer-events: all;
@@ -358,6 +391,16 @@ progress::-moz-progress-bar{
     }
     .portfolio > .container > .section-title{
         grid-column: span  2;
+    }
+    .portfolio-modal{
+        display: flex;
+        flex-direction: row;
+        max-width: 800px;
+
+    }
+    .portfolio-info{
+        margin-left: 1rem;
+        align-self: center;
     }
     .services > .container{
         display: grid;
